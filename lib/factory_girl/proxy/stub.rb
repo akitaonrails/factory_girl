@@ -13,6 +13,14 @@ class Factory
             id.nil?
           end
 
+          def save(*args)
+            raise "stubbed models are not allowed to access the database"
+          end
+
+          def destroy(*args)
+            raise "stubbed models are not allowed to access the database"
+          end
+
           def connection
             raise ERROR_MESSAGE
           end

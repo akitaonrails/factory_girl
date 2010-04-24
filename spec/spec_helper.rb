@@ -1,7 +1,17 @@
 $: << File.join(File.dirname(__FILE__), '..', 'lib')
 $: << File.join(File.dirname(__FILE__))
 
-Bundler.require_env
+require 'rubygems'
+
+if ENV['CUSTOM_RAILS']
+  gem 'activerecord', ENV['CUSTOM_RAILS']
+end
+
+require 'active_record'
+
+require 'spec'
+require 'spec/autorun'
+require 'rr'
 
 require 'models'
 require 'factory_girl'

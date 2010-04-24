@@ -1,4 +1,3 @@
-require 'active_support'
 require 'factory_girl/proxy'
 require 'factory_girl/proxy/build'
 require 'factory_girl/proxy/create'
@@ -25,8 +24,8 @@ if defined?(Rails.application) && Rails.application
   Rails.configuration.after_initialize do
     root = (defined?(Rails.root) && Rails.root) || RAILS_ROOT
     Factory.definition_file_paths = [
-      File.join(root, 'test', 'factories'),
-      File.join(root, 'spec', 'factories')
+      File.join(Rails.root, 'test', 'factories'),
+      File.join(Rails.root, 'spec', 'factories')
     ]
     Factory.find_definitions
   end
